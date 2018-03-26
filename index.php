@@ -3,8 +3,8 @@ $N = 1232;
 $M = 3212;
 
 echo 'Исходные данные N: '.$N.'; M:'.$M.';';
-$divider_1 = numberOfDividers($N,1);
-$divider_2 = numberOfDividers($M,1);
+$divider_1 = numberOfDividers($N);
+$divider_2 = numberOfDividers($M);
 $divider = 1;
 
 for ($i = 0; $i < counts($divider_1); $i++){
@@ -21,36 +21,16 @@ echo '<br>Ответ: '.$divider;
 
 
 
-
-
 // кол-во делителей числа
 function numberOfDividers ($number, $param = null){
-    //if (!isNumber($number)){ return 'Неверно задано число';}
-    $answer = array(
-        'kol'  => 0,
-        'itog' => []
-    );
-    $j = 0;
     $mass = [];
     for ($i = 1; $i < $number; $i++){
         if ($number % $i == 0){
             $mass[] = $i;
             $j++;
         }
-    }
-    if ($mass){
-        $answer['kol'] = $j;
-        $answer['itog'] = $mass;                
-    }           
-    if ($param){
-        if ($mass){
-            return $mass;
-        }else {
-            return false;
-        }
-    }
-
-    return json_encode($answer);
+    }        
+    return $mass;
 }
 
 
